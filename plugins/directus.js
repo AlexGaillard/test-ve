@@ -1,9 +1,11 @@
-import { createDirectus, rest, readItem, readItems } from '@directus/sdk';
-
-const directus = createDirectus('http://localhost:8055').with(rest());
+import { createDirectus, rest, readItem, readItems } from "@directus/sdk";
 
 export default defineNuxtPlugin(() => {
-	return {
-		provide: { directus, readItem, readItems },
-	};
+  const { apiUrl } = useRuntimeConfig().public;
+
+  const directus = createDirectus(apiUrl).with(rest());
+
+  return {
+    provide: { directus, readItem, readItems },
+  };
 });

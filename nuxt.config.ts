@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
+      apiUrl: "http://localhost:8055",
       directusUrl: "http://localhost:8080",
     },
   },
